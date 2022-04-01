@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Live Javascript Clock</title>
+    <script>
+        function getTime(){
+            let date = new Date();
+            let hour =date.getHours();
+            let min =date.getMinutes();
+            let sec =date.getSeconds();
+            let ampm = hour >= 12 ? 'pm' : 'am'; //getting am pm before setting 12 hours format
+            hour = hour > 12 ? hour -12 :hour; // 12 hour formatting
+            hour=checkTen(hour);
+            min=checkTen(min);
+            sec=checkTen(sec);
+            document.getElementById("time").innerText=hour+":"+min+":"+sec+" "+ampm;
+            setInterval(getTime,1000);
+        }
+        function checkTen(a){
+            a<10?a="0"+a:a=a; //adding 0 before if any number is below 10 like 9-> 09
+            return a;
+        }
+    </script>
+</head>
+<!--getTime() will call when loading the page-->
+<body style="text-align: center;" onload="getTime();">
+
+<h1 id="time"></h1>
+
+</body>
+</html>
