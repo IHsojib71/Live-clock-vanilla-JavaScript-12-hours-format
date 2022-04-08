@@ -13,7 +13,7 @@
             min=checkTen(min);
             sec=checkTen(sec);
             document.getElementById("time").innerText=hour+":"+min+":"+sec+" "+ampm;
-            setInterval(getTime,1000);
+            setTimeout(getTime,1000);
         }
         function checkTen(a){
             a<10?a="0"+a:a=a; //adding 0 before if any number is below 10 like 9-> 09
